@@ -23,6 +23,7 @@ struct ContentView: View {
 //code
 //code 1 
 //code 2
+//commit for git
 
 #Preview {
     ContentView()
