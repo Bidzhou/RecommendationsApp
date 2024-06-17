@@ -15,12 +15,14 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("Hello, world! my name is BiBI")
             Text("i hate all of you")
+            Text("am 19 yo")
         }
         .padding()
     }
 }
 //code
 //code 1 
+//code 2
 
 #Preview {
     ContentView()
