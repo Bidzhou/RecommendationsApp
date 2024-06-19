@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-
+let screen = UIScreen.main.bounds
 @main
 struct RecommendationsAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GreetingView()
         }
     }
 }

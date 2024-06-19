@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GreetingView: View {
     @State private var currentSymbol = "movieclapper"
     private let symbols = ["movieclapper", "music.mic.circle.fill", "headphones", "popcorn.fill"]
     private var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
@@ -57,5 +57,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    GreetingView()
 }
