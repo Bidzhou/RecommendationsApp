@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct GreetingView: View {
-    @State private var currentSymbol = "movieclapper"
-    private let symbols = ["movieclapper", "music.mic.circle.fill", "headphones", "popcorn.fill"]
+    @StateObject var viewModel = GreetingViewModel()
     private var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     var body: some View {
         ZStack {
@@ -17,12 +16,16 @@ struct GreetingView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .center){
                 Spacer()
-                Image(systemName: currentSymbol)
+                Image(systemName: viewModel.currentSymbol)
                     .resizable()
                     .frame(width: 100, height: 100)
                     .foregroundColor(Color("BloodRed"))
                     .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.5), value: currentSymbol)
+                    .animation(.easeInOut(duration: 0.5), value: viewModel.currentSymbol)
+                    .padding(.bottom, 40)
+                Text("Откройте для себя что-то новое")
+                    .foregroundStyle(Color.white)
+                    .font(.title3.italic())
                 Spacer()
                 Button(action: {
                     
@@ -37,22 +40,11 @@ struct GreetingView: View {
                 })
             }        .onReceive(timer, perform: { _ in
                 withAnimation {
-                    changeSymbol()
+                    viewModel.changeSymbol()
                 }
             })
         }
-
-        
-
-        
     }
-    private func changeSymbol() {
-        if let currentIndex = symbols.firstIndex(of: currentSymbol){
-            let nextIndex = (currentIndex + 1) % symbols.count
-            currentSymbol = symbols[nextIndex]
-        }
-    }
-        
 }
 
 
