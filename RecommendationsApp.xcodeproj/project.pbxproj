@@ -7,20 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00707F982C270F70003A9128 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00707F972C270F6F003A9128 /* MainTabBar.swift */; };
 		00F1D5162C20B75B00E7D4AD /* RecommendationsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D5152C20B75B00E7D4AD /* RecommendationsAppApp.swift */; };
 		00F1D5182C20B75B00E7D4AD /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D5172C20B75B00E7D4AD /* GreetingView.swift */; };
 		00F1D51A2C20B75D00E7D4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F1D5192C20B75D00E7D4AD /* Assets.xcassets */; };
 		00F1D51D2C20B75D00E7D4AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F1D51C2C20B75D00E7D4AD /* Preview Assets.xcassets */; };
 		00F1D52B2C2261CA00E7D4AD /* GreetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D52A2C2261CA00E7D4AD /* GreetingViewModel.swift */; };
+		00F1D52E2C22D05300E7D4AD /* APIWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D52D2C22D05300E7D4AD /* APIWorkflow.swift */; };
+		00F1D5302C22DBC300E7D4AD /* FilmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D52F2C22DBC300E7D4AD /* FilmInfo.swift */; };
+		00F1D5342C22E21600E7D4AD /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D5332C22E21600E7D4AD /* ContentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00707F972C270F6F003A9128 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		00F1D5122C20B75B00E7D4AD /* RecommendationsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommendationsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F1D5152C20B75B00E7D4AD /* RecommendationsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsAppApp.swift; sourceTree = "<group>"; };
 		00F1D5172C20B75B00E7D4AD /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
 		00F1D5192C20B75D00E7D4AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F1D51C2C20B75D00E7D4AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		00F1D52A2C2261CA00E7D4AD /* GreetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewModel.swift; sourceTree = "<group>"; };
+		00F1D52D2C22D05300E7D4AD /* APIWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWorkflow.swift; sourceTree = "<group>"; };
+		00F1D52F2C22DBC300E7D4AD /* FilmInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfo.swift; sourceTree = "<group>"; };
+		00F1D5332C22E21600E7D4AD /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				00F1D5152C20B75B00E7D4AD /* RecommendationsAppApp.swift */,
+				00F1D5322C22E1F500E7D4AD /* Service */,
+				00F1D5312C22E1EE00E7D4AD /* Model */,
 				00F1D52C2C22639D00E7D4AD /* ViewModel */,
 				00F1D5272C22539300E7D4AD /* Views */,
 				00F1D5192C20B75D00E7D4AD /* Assets.xcassets */,
@@ -74,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				00F1D5172C20B75B00E7D4AD /* GreetingView.swift */,
+				00707F972C270F6F003A9128 /* MainTabBar.swift */,
+				00F1D5332C22E21600E7D4AD /* ContentCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,6 +96,22 @@
 				00F1D52A2C2261CA00E7D4AD /* GreetingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		00F1D5312C22E1EE00E7D4AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00F1D52F2C22DBC300E7D4AD /* FilmInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00F1D5322C22E1F500E7D4AD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				00F1D52D2C22D05300E7D4AD /* APIWorkflow.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F1D5302C22DBC300E7D4AD /* FilmInfo.swift in Sources */,
 				00F1D5182C20B75B00E7D4AD /* GreetingView.swift in Sources */,
+				00707F982C270F70003A9128 /* MainTabBar.swift in Sources */,
+				00F1D52E2C22D05300E7D4AD /* APIWorkflow.swift in Sources */,
+				00F1D5342C22E21600E7D4AD /* ContentCell.swift in Sources */,
 				00F1D52B2C2261CA00E7D4AD /* GreetingViewModel.swift in Sources */,
 				00F1D5162C20B75B00E7D4AD /* RecommendationsAppApp.swift in Sources */,
 			);

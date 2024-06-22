@@ -9,7 +9,8 @@ import SwiftUI
 
 struct GreetingView: View {
     @StateObject var viewModel = GreetingViewModel()
-    private var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+    @State var isButtonPushed = false
+    private var timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     var body: some View {
         ZStack {
             Color.black
@@ -28,7 +29,7 @@ struct GreetingView: View {
                     .font(.title3.italic())
                 Spacer()
                 Button(action: {
-                    
+                    isButtonPushed.toggle()
                 }, label: {
                     Text("Приступить к просмотру")
                         .foregroundColor(.white)
@@ -43,7 +44,9 @@ struct GreetingView: View {
                     viewModel.changeSymbol()
                 }
             })
-        }
+        }.fullScreenCover(isPresented: $isButtonPushed, content: {
+            ContentCell()
+        })
     }
 }
 
