@@ -45,7 +45,6 @@ struct GreetingView: View {
                 }
             })
         }.fullScreenCover(isPresented: $isButtonPushed, content: {
-//            ContentCell(movieInf: FilmInfo(id: 1, name: "12", year: 123, description: "123", poster: FilmInfo.URLS(url: "https://image.openmoviedb.com/kinopoisk-images/1946459/bf93b465-1189-4155-9dd1-cb9fb5cb1bb5/orig", previewUrl: "https://image.openmoviedb.com/kinopoisk-images/1946459/bf93b465-1189-4155-9dd1-cb9fb5cb1bb5/orig"), rating: FilmInfo.Rates(kp: 5.5)))
             MovieListView()
         })
     }

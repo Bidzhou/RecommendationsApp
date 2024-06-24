@@ -9,18 +9,18 @@ import Foundation
 
 struct FilmInfo: Decodable, Identifiable {
     let id : Int
-    let name: String
-    //let  alternativeName: String
+    let name: String?
+    let alternativeName: String?
     let year: Int
-    let description: String
+    let description: String?
     let poster: URLS
     struct URLS: Codable {
-        let url: String
-        let previewUrl: String
+        let url: String?
+        let previewUrl: String?
     }
     let rating: Rates
     struct Rates: Codable {
-        let kp: Double
+        let kp: Double?
     }
     
 }

@@ -13,7 +13,7 @@ class APIWorkflow {
         let tunnel = "https://" //туннель
         let server = "api.kinopoisk.dev" //адрес сервера
         let endpoint = "/v1.4/movie"
-        let getParams = ["/535341", "/258687", "/435", "/326", "/361"]
+        let getParams = ["/535341", "/258687", "/435", "/326", "/361", "/random"]
         guard num <= getParams.count else {
             let urlStr = tunnel + server + endpoint + getParams[0]
             let url = URL(string: urlStr)
@@ -42,7 +42,7 @@ class APIWorkflow {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(FilmInfo.self, from: response.0)
-            print(result)
+            print(result.id)
             return result
         } catch {
             print("Фетч дата результат")
@@ -61,7 +61,7 @@ class APIWorkflow {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.timeoutInterval = 10
-        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "bad api key"]
+        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "super bad api key"]
         let response = try await URLSession.shared.data(for: request)
         guard (response.1 as? HTTPURLResponse)?.statusCode == 200 else {
             print("имаге")
@@ -72,6 +72,7 @@ class APIWorkflow {
 
 
     }
+
     
 //    func fetch1Data(completion: @escaping (Result<FilmInfo, Error>) -> Void) {
 //        guard let url = createURL() else {

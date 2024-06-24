@@ -9,32 +9,24 @@ import Foundation
 
 class MovieListViewModel: ObservableObject {
     static let shared = MovieListViewModel()
+    @Published var isOnLoad = false
     @Published var avgFilm = [FilmInfo(id: 1,
-                            name: "badnbouje",
+                            name: "badnbouje", alternativeName: "agiga",
                             year: 1987,
                             description: "two bad gyus etc.",
                             poster: FilmInfo.URLS(url: ";ald", previewUrl: "sldnf"),
                             rating: FilmInfo.Rates(kp: 5.5)), FilmInfo(id: 2,
-                                                                       name: "badnbouje",
+                                                                       name: "badnbouje", alternativeName: "bob marlety",
                                                                        year: 1987,
                                                                        description: "two bad gyus etc.",
                                                                        poster: FilmInfo.URLS(url: ";ald", previewUrl: "sldnf"),
                                                                        rating: FilmInfo.Rates(kp: 5.5))]
-//    func getMovies(){
-//        avgFilm.removeAll()
-//        
-//        Task{
-//            
-//            let res = try await APIWorkflow.shared.fetchData()
-//            avgFilm.append(res)
-//        }
-//        
-//    }
-    func fetchMoviesConcurrently() async throws -> [FilmInfo] {
+
+    func fetchMoviesConcurrently(movCount: Int) async throws -> [FilmInfo] {
         try await withThrowingTaskGroup(of: FilmInfo.self) { group in
-            for i in 1...3 {
+            for _ in 1...movCount {
                 group.addTask {
-                    return try await APIWorkflow.shared.fetchData(i)
+                    return try await APIWorkflow.shared.fetchData(5)
                 }
             }
 
@@ -50,14 +42,18 @@ class MovieListViewModel: ObservableObject {
             
         }
     }
-//    func addMovies() async throws -> [FilmInfo]{
-//        do{
-//            self.avgFilm += try await fetchMoviesConcurrently()
-//            return self.avgFilm
-//        } catch {
-//            print("не удалось добавить еще фильмов")
-//            throw NetworkingError.invalidData
-//        }
-//        
-//    }
+    func clearMoviesArray(){
+        self.avgFilm.removeAll()
+    }
+    
+    func addFewMovies(movCount: Int) async throws -> (){
+        guard !isOnLoad else {return}
+        
+        isOnLoad = true
+        Task {
+            try await fetchMoviesConcurrently(movCount: movCount)
+        }
+        isOnLoad = false
+    }
+
 }
