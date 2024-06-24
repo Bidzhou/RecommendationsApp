@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00707F982C270F70003A9128 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00707F972C270F6F003A9128 /* MainTabBar.swift */; };
+		00707F9A2C271A57003A9128 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00707F992C271A57003A9128 /* MovieListView.swift */; };
+		00707F9C2C271FF7003A9128 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00707F9B2C271FF7003A9128 /* MovieListViewModel.swift */; };
 		00F1D5162C20B75B00E7D4AD /* RecommendationsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D5152C20B75B00E7D4AD /* RecommendationsAppApp.swift */; };
 		00F1D5182C20B75B00E7D4AD /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D5172C20B75B00E7D4AD /* GreetingView.swift */; };
 		00F1D51A2C20B75D00E7D4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F1D5192C20B75D00E7D4AD /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		00707F972C270F6F003A9128 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		00707F992C271A57003A9128 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		00707F9B2C271FF7003A9128 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		00F1D5122C20B75B00E7D4AD /* RecommendationsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommendationsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F1D5152C20B75B00E7D4AD /* RecommendationsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsAppApp.swift; sourceTree = "<group>"; };
 		00F1D5172C20B75B00E7D4AD /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			children = (
 				00F1D5172C20B75B00E7D4AD /* GreetingView.swift */,
 				00707F972C270F6F003A9128 /* MainTabBar.swift */,
+				00707F992C271A57003A9128 /* MovieListView.swift */,
 				00F1D5332C22E21600E7D4AD /* ContentCell.swift */,
 			);
 			path = Views;
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				00F1D52A2C2261CA00E7D4AD /* GreetingViewModel.swift */,
+				00707F9B2C271FF7003A9128 /* MovieListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -189,8 +195,10 @@
 				00707F982C270F70003A9128 /* MainTabBar.swift in Sources */,
 				00F1D52E2C22D05300E7D4AD /* APIWorkflow.swift in Sources */,
 				00F1D5342C22E21600E7D4AD /* ContentCell.swift in Sources */,
+				00707F9A2C271A57003A9128 /* MovieListView.swift in Sources */,
 				00F1D52B2C2261CA00E7D4AD /* GreetingViewModel.swift in Sources */,
 				00F1D5162C20B75B00E7D4AD /* RecommendationsAppApp.swift in Sources */,
+				00707F9C2C271FF7003A9128 /* MovieListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

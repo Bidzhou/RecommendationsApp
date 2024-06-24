@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct ContentCell: View {
-    @State var filmInfo: FilmInfo?
+    //@State var filmInfo: FilmInfo?
+    @State var movieInf: FilmInfo
     @State var uiImage = UIImage(systemName: "popcorn.fill")!
-
+    
     var body: some View {
         VStack {
             Image(uiImage: self.uiImage)
                 .resizable()
                 .frame(width: screen.width*0.46, height: screen.height*0.28)
                 .cornerRadius(6)
-            Text(filmInfo?.name ?? "filmName")
+            Text("\(movieInf.name)")
                 .font(.title)
+                .frame(maxWidth: screen.width*0.46)
                 .lineLimit(1)
-                .truncationMode(.head)
+                .truncationMode(.tail)
                 .foregroundStyle(Color(.white))
-            Text("\(String(filmInfo?.year ?? 1000))")
+            Text("\(String(movieInf.year))")
                 .font(.headline)
                 .foregroundStyle(Color(.white))
-            Text("\((filmInfo?.rating.kp ?? 0.000).formatted())")
+            Text("\((movieInf.rating.kp).formatted())")
                 .foregroundStyle(Color(.white))
         }
         .padding(3)
@@ -33,15 +35,23 @@ struct ContentCell: View {
         .cornerRadius(3)
         .shadow(color: Color.red, radius: 20, x:5, y:5)
         .onAppear {
+            
             Task {
-                let result = try await APIWorkflow.shared.fetchData()
+                //let result = try await APIWorkflow.shared.fetchData()
                 
-                self.filmInfo = result
-                guard let img = try await UIImage(data: APIWorkflow.shared.loadImage(imageurl: result.poster.previewUrl)) else {return}
-                uiImage = img
+                //self.filmInfo = result
+                //self.movieInf = result
+                guard let img = try await UIImage(data: APIWorkflow.shared.loadImage(imageurl: self.movieInf.poster.previewUrl)) else {return}
+                self.uiImage = img
                 
                 
             }
+                
+
+
+                
+                
+            
         }
        
     }
@@ -49,5 +59,11 @@ struct ContentCell: View {
 }
 
 #Preview {
-    ContentCell()
+    ContentCell(movieInf: FilmInfo(id: 1,
+                                   name: "agiga",
+                                   year: 1987,
+                                   description: "2 sticks",
+                                   poster: FilmInfo.URLS(url: "https://image.openmoviedb.com/kinopoisk-images/1946459/bf93b465-1189-4155-9dd1-cb9fb5cb1bb5/orig", previewUrl: "https://image.openmoviedb.com/kin opoisk-images/1946459/bf93b465-1189-4155-9dd1-cb9fb5cb1bb5/orig"),
+                                   rating: FilmInfo.Rates(kp: 8.8)))
 }
+

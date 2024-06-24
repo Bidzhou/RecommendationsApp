@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MainTabBar: View {
     var body: some View {
-        Text("hi")
+        TabView{
+            Text("dlsjfns")
+        }
     }
 }
 
