@@ -16,31 +16,28 @@ struct ContentCell: View {
         VStack {
             Image(uiImage: self.uiImage)
                 .resizable()
-                .frame(width: screen.width*0.46, height: screen.height*0.28)
-                .cornerRadius(6)
+                .frame(width: screen.width*0.43, height: screen.height*0.22)
+                .cornerRadius(16)
             Text("\(movieInf.name ?? movieInf.alternativeName ?? "дулбуёп")")
-                .font(.title)
-                .frame(maxWidth: screen.width*0.46)
+                .font(.title3)
+                .frame(maxWidth: screen.width*0.4)
                 .lineLimit(1)
                 .truncationMode(.tail)
                 .foregroundStyle(Color(.white))
-            Text("\(String(movieInf.year))")
+            Text("\(String(movieInf.year ?? 0))")
                 .font(.headline)
                 .foregroundStyle(Color(.white))
             Text("\(movieInf.rating.kp != nil ? String(format: "%.1f", movieInf.rating.kp!) : "no rating(")")
                 .foregroundStyle(Color(.white))
         }
         .padding(3)
-        .background(LinearGradient(colors: [Color("BloodRed"),Color(.black)], startPoint: .leading, endPoint: .trailing))
-        .cornerRadius(3)
+        .background(LinearGradient(colors: [Color("BloodRed"),Color(.black)], startPoint: .bottom, endPoint: .top))
+        .cornerRadius(16)
         //.shadow(color: Color.red, radius: 20, x:5, y:5)
         .onAppear {
             
             Task {
-                //let result = try await APIWorkflow.shared.fetchData()
-                
-                //self.filmInfo = result
-                //self.movieInf = result
+
                 guard let url = movieInf.poster.previewUrl ?? movieInf.poster.url else {
                     return
                 }
@@ -48,13 +45,7 @@ struct ContentCell: View {
                 guard let img = try await UIImage(data: APIWorkflow.shared.loadImage(imageurl: url)) else {return}
                 self.uiImage = img
                 
-                
             }
-                
-
-
-                
-                
             
         }
        

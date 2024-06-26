@@ -46,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00432F6E2C2C1884008A5C44 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				00F1D5332C22E21600E7D4AD /* ContentCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		00F1D5092C20B75B00E7D4AD = {
 			isa = PBXGroup;
 			children = (
@@ -90,7 +98,7 @@
 				00F1D5172C20B75B00E7D4AD /* GreetingView.swift */,
 				00707F972C270F6F003A9128 /* MainTabBar.swift */,
 				00707F992C271A57003A9128 /* MovieListView.swift */,
-				00F1D5332C22E21600E7D4AD /* ContentCell.swift */,
+				00432F6E2C2C1884008A5C44 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";

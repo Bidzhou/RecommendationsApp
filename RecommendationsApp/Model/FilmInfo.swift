@@ -11,7 +11,7 @@ struct FilmInfo: Decodable, Identifiable {
     let id : Int
     let name: String?
     let alternativeName: String?
-    let year: Int
+    let year: Int?
     let description: String?
     let poster: URLS
     struct URLS: Codable {

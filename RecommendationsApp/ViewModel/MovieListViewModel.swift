@@ -48,12 +48,15 @@ class MovieListViewModel: ObservableObject {
     
     func addFewMovies(movCount: Int) async throws -> (){
         guard !isOnLoad else {return}
-        
-        isOnLoad = true
+        DispatchQueue.main.async{
+            self.isOnLoad = true
+        }
         Task {
             try await fetchMoviesConcurrently(movCount: movCount)
         }
-        isOnLoad = false
+        DispatchQueue.main.async{
+            self.isOnLoad = false
+        }
     }
 
 }

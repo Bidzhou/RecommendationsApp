@@ -10,7 +10,7 @@ import SwiftUI
 struct GreetingView: View {
     @StateObject var viewModel = GreetingViewModel()
     @State var isButtonPushed = false
-    private var timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    private var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some View {
         ZStack {
             Color.black
@@ -45,7 +45,8 @@ struct GreetingView: View {
                 }
             })
         }.fullScreenCover(isPresented: $isButtonPushed, content: {
-            MovieListView()
+            MainTabBar()
+            
         })
     }
 }

@@ -9,8 +9,20 @@ import SwiftUI
 
 struct MainTabBar: View {
     var body: some View {
-        TabView{
-            Text("dlsjfns")
+        ZStack {
+            Color.black
+                .ignoresSafeArea()
+            TabView{
+                NavigationStack {
+                    MovieListView()
+                }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.bullet.circle.fill")
+                        Text("Movies")
+                    }
+                }
+            }.accentColor(Color("BloodRed"))
         }
     }
 }

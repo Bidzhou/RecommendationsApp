@@ -27,22 +27,25 @@ struct MovieListView: View {
                                             Task{
                                                 
                                                 try await viewModel.addFewMovies(movCount: 2)
-
+                                                
                                             }
                                         }
                                     }
                             }
-                        )                }
+                        )
+                }
                 
             })
-        }.navigationTitle(Text("helo"))
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black)
+                .background(Color.black)
+        
+
         
         .onAppear{
             viewModel.clearMoviesArray()
             Task{
-               try await viewModel.fetchMoviesConcurrently(movCount: 5)
+               try await viewModel.fetchMoviesConcurrently(movCount: 8)
             }
         }
 
