@@ -33,7 +33,7 @@ class APIWorkflow {
 
         request.httpMethod = "GET"
         request.timeoutInterval = 10
-        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "super-mega-bad api key"]
+        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "goofy ass api key"]
         let response = try await URLSession.shared.data(for: request)
         guard (response.1 as? HTTPURLResponse)?.statusCode == 200 else {
             print("Фетч дата плохой запрос")
@@ -61,7 +61,7 @@ class APIWorkflow {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.timeoutInterval = 10
-        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "super-mega-bad api key"]
+        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "goofy ass api key"]
         let response = try await URLSession.shared.data(for: request)
         guard (response.1 as? HTTPURLResponse)?.statusCode == 200 else {
             print("имаге")
@@ -72,34 +72,6 @@ class APIWorkflow {
 
 
     }
-
-    
-//    func fetch1Data(completion: @escaping (Result<FilmInfo, Error>) -> Void) {
-//        guard let url = createURL() else {
-//            completion(.failure(NetworkingError.badUrl))
-//            return
-//        }
-//        URLSession.shared.dataTask(with: url) { data, response, error in //специальный класс внутри свифта для работы с интернетом/сессией, у него етсь синглтон
-//            guard let data else {
-//                if let error {
-//                    completion(.failure(error))
-//                }
-//                return
-//            }
-//            let decoder = JSONDecoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase
-//            do {
-//                let usersData = try decoder.decode(FilmInfo.self, from: data)
-//                completion(.success(usersData))
-//            } catch {
-//                completion(.failure(NetworkingError.invalidData))
-//            }
-//            
-//            
-//            
-//        }.resume()
-        
-//    }
 
 
 }

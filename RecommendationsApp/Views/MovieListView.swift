@@ -10,38 +10,48 @@ import SwiftUI
 struct MovieListView: View {
     @StateObject var viewModel = MovieListViewModel()
     @State var changeFlag = false
+    @State var selectedItem: FilmInfo? = nil
+    @State var showSheet = false
     let layout = [GridItem(.adaptive(minimum: screen.width/2.2))]
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             LazyVGrid(columns: layout, content: {
                 ForEach(viewModel.avgFilm, id: \.id){ item in
-                    
-                    ContentCell(movieInf: item)
-                        .background(
-                            GeometryReader { proxy in
-                                Color.clear
-                                    .onAppear {
-                                        let frame = proxy.frame(in: .global)
-                                        if frame.maxY > UIScreen.main.bounds.height * 0.8 {
-                                            Task{
-                                                
-                                                try await viewModel.addFewMovies(movCount: 2)
-                                                
+                    Button(action: {
+                        showSheet.toggle()
+                        selectedItem = item
+                    }, label: {
+                        ContentCell(movieInf: item)
+                                .background(
+                                    GeometryReader { proxy in
+                                        Color.clear
+                                            .onAppear {
+                                                let frame = proxy.frame(in: .global)
+                                                if frame.maxY > UIScreen.main.bounds.height * 0.8 {
+                                                    Task{
+                        
+                                                        try await viewModel.addFewMovies(movCount: 2)
+                        
+                                                    }
+                                                }
                                             }
-                                        }
                                     }
-                            }
-                        )
+                                )
+                    })
+                    
                 }
                 
             })
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.black)
-        
-
-        
+        .sheet(isPresented: $showSheet) {
+            if let selectedItem = selectedItem {
+                let detailViewModel = MovieDetalViewModel(Movie: selectedItem)
+                MovieDetailView(viewModel: detailViewModel)
+            }
+        }
         .onAppear{
             viewModel.clearMoviesArray()
             Task{
@@ -55,4 +65,6 @@ struct MovieListView: View {
 #Preview {
     MovieListView()
 }
+
+
 
