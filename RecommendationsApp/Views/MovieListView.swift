@@ -13,6 +13,17 @@ struct MovieListView: View {
     @State var selectedItem: FilmInfo? = nil
     @State var showSheet = false
     let layout = [GridItem(.adaptive(minimum: screen.width/2.2))]
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground() // Настройка прозрачного фона
+        appearance.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = UIColor.black // Установите нужный цвет
+        UITabBar.appearance().standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+    }
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){

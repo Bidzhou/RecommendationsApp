@@ -12,7 +12,7 @@ struct MovieDetailView: View {
     @State var uiImage = UIImage(systemName: "popcorn.fill")!
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             VStack(){
                 Image(uiImage: uiImage)
                     .resizable()

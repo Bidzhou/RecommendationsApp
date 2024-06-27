@@ -33,7 +33,7 @@ class APIWorkflow {
 
         request.httpMethod = "GET"
         request.timeoutInterval = 10
-        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "goofy ass api key"]
+        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "your api key"]
         let response = try await URLSession.shared.data(for: request)
         guard (response.1 as? HTTPURLResponse)?.statusCode == 200 else {
             print("Фетч дата плохой запрос")
@@ -61,7 +61,7 @@ class APIWorkflow {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.timeoutInterval = 10
-        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "goofy ass api key"]
+        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "your api key"]
         let response = try await URLSession.shared.data(for: request)
         guard (response.1 as? HTTPURLResponse)?.statusCode == 200 else {
             print("имаге")
