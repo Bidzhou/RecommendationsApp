@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    var viewModel: MovieDetalViewModel
+    @StateObject var viewModel: MovieDetalViewModel
     @State var uiImage = UIImage(systemName: "popcorn.fill")!
+    @State var isLikeButtonClicked = false
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -50,6 +51,23 @@ struct MovieDetailView: View {
                     .background(Color("myGray"))
                     .cornerRadius(5)
                     .padding(.bottom, 25)
+                
+                Button(action: {
+                    isLikeButtonClicked.toggle()
+                    if isLikeButtonClicked == true{
+                        ProfileViewModel.shared.addMovieToLikedList(viewModel.Movie)
+                    } else {
+                        ProfileViewModel.shared.removeMovieFromLikedList(viewModel.Movie)
+                    }
+                }, label: {
+                    Image(systemName: viewModel.currentLike)
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundStyle(Color("BloodRed"))
+                        .transition(.scale)
+                        .animation(.easeInOut(duration: 0.5), value: viewModel.currentLike)
+                }).padding(.bottom, 25)
+                
                 Button {
                     let url = URL(string: "https://www.kinopoisk.ru/film/" + String(viewModel.Movie.id))!
                     UIApplication.shared.open(url)
@@ -84,7 +102,16 @@ struct MovieDetailView: View {
                 self.uiImage = img
                 
             }
-            
+            if ProfileViewModel.shared.likedMovies.contains(viewModel.Movie) {
+                isLikeButtonClicked = true
+            } else {
+                isLikeButtonClicked = false
+            }
+        }
+        .onChange(of: isLikeButtonClicked) {
+            withAnimation {
+                viewModel.changeLikeButton()
+            }
         }
         
         

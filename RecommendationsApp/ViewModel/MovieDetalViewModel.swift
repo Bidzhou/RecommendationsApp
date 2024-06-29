@@ -12,4 +12,12 @@ class MovieDetalViewModel: ObservableObject{
     init(Movie: FilmInfo) {
         self.Movie = Movie
     }
+    @Published var currentLike = "heart"
+    let likeCondition = ["heart", "heart.fill"]
+    func changeLikeButton(){
+        if let curInd = likeCondition.firstIndex(of: currentLike) {
+            currentLike = likeCondition[(curInd + 1) % likeCondition.count]
+            print(currentLike)
+        }
+    }
 }

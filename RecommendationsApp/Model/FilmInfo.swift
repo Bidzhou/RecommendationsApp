@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct FilmInfo: Decodable, Identifiable {
+struct FilmInfo: Decodable, Identifiable, Equatable {
+    static func == (lhs: FilmInfo, rhs: FilmInfo) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id : Int
     let name: String?
     let alternativeName: String?

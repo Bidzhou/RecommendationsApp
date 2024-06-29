@@ -8,6 +8,17 @@
 import SwiftUI
 
 struct MainTabBar: View {
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground() // Настройка прозрачного фона
+        appearance.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = UIColor.black // Установите нужный цвет
+        UITabBar.appearance().standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+    }
     var body: some View {
         ZStack {
             Color.black
@@ -19,6 +30,15 @@ struct MainTabBar: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "list.bullet.circle.fill")
+                        Text("Movies")
+                    }
+                }
+                NavigationStack {
+                    ProfileView()
+                }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "person.circle.fill")
                         Text("Movies")
                     }
                 }

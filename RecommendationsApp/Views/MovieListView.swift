@@ -13,18 +13,6 @@ struct MovieListView: View {
     @State var selectedItem: FilmInfo? = nil
     @State var showSheet = false
     let layout = [GridItem(.adaptive(minimum: screen.width/2.2))]
-    init() {
-        let appearance = UITabBarAppearance()
-        appearance.configureWithTransparentBackground() // Настройка прозрачного фона
-        appearance.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-//        appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = UIColor.black // Установите нужный цвет
-        UITabBar.appearance().standardAppearance = appearance
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
-
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             LazyVGrid(columns: layout, content: {
@@ -42,7 +30,7 @@ struct MovieListView: View {
                                                 if frame.maxY > UIScreen.main.bounds.height * 0.8 {
                                                     Task{
                         
-                                                        try await viewModel.addFewMovies(movCount: 2)
+                                                        try await viewModel.addFewMovies(movCount: 6)
                         
                                                     }
                                                 }
@@ -68,6 +56,7 @@ struct MovieListView: View {
             Task{
                try await viewModel.fetchMoviesConcurrently(movCount: 8)
             }
+            
         }
 
     }

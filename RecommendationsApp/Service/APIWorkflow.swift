@@ -13,13 +13,13 @@ class APIWorkflow {
         let tunnel = "https://" //туннель
         let server = "api.kinopoisk.dev" //адрес сервера
         let endpoint = "/v1.4/movie"
-        let getParams = ["/535341", "/258687", "/435", "/326", "/361", "/random"]
+        let getParams = "/random"
         guard num <= getParams.count else {
-            let urlStr = tunnel + server + endpoint + getParams[0]
+            let urlStr = tunnel + server + endpoint + getParams
             let url = URL(string: urlStr)
             return url
         }
-        let urlStr = tunnel + server + endpoint + getParams[num]
+        let urlStr = tunnel + server + endpoint + getParams
         let url = URL(string: urlStr)
         return url
     }
@@ -33,7 +33,7 @@ class APIWorkflow {
 
         request.httpMethod = "GET"
         request.timeoutInterval = 10
-        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "your api key"]
+        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "ZXH68AY-2MW48Q9-H8Q9203-1ZCSA40"]
         let response = try await URLSession.shared.data(for: request)
         guard (response.1 as? HTTPURLResponse)?.statusCode == 200 else {
             print("Фетч дата плохой запрос")
@@ -61,7 +61,7 @@ class APIWorkflow {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.timeoutInterval = 10
-        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "your api key"]
+        request.allHTTPHeaderFields = ["accept": "application/json","X-API-KEY": "ZXH68AY-2MW48Q9-H8Q9203-1ZCSA40"]
         let response = try await URLSession.shared.data(for: request)
         guard (response.1 as? HTTPURLResponse)?.statusCode == 200 else {
             print("имаге")
