@@ -13,6 +13,7 @@
 		00707F982C270F70003A9128 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00707F972C270F6F003A9128 /* MainTabBar.swift */; };
 		00707F9A2C271A57003A9128 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00707F992C271A57003A9128 /* MovieListView.swift */; };
 		00707F9C2C271FF7003A9128 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00707F9B2C271FF7003A9128 /* MovieListViewModel.swift */; };
+		008046272C30F368001B6804 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008046262C30F367001B6804 /* ImagePicker.swift */; };
 		00B346072C2C2AB2009EBAC5 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B346062C2C2AB2009EBAC5 /* MovieDetailView.swift */; };
 		00B346092C2C33AA009EBAC5 /* MovieDetalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B346082C2C33AA009EBAC5 /* MovieDetalViewModel.swift */; };
 		00F1D5162C20B75B00E7D4AD /* RecommendationsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1D5152C20B75B00E7D4AD /* RecommendationsAppApp.swift */; };
@@ -32,6 +33,7 @@
 		00707F972C270F6F003A9128 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		00707F992C271A57003A9128 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		00707F9B2C271FF7003A9128 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		008046262C30F367001B6804 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		00B346062C2C2AB2009EBAC5 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		00B346082C2C33AA009EBAC5 /* MovieDetalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetalViewModel.swift; sourceTree = "<group>"; };
 		00F1D5122C20B75B00E7D4AD /* RecommendationsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommendationsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,7 @@
 				00B346062C2C2AB2009EBAC5 /* MovieDetailView.swift */,
 				00123E4B2C2F006C00FC9E01 /* ProfileViewCell.swift */,
 				00F1D5332C22E21600E7D4AD /* ContentCell.swift */,
+				008046262C30F367001B6804 /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				00F1D52B2C2261CA00E7D4AD /* GreetingViewModel.swift in Sources */,
 				00123E4C2C2F006C00FC9E01 /* ProfileViewCell.swift in Sources */,
 				00123E4A2C2EE2C300FC9E01 /* ProfileViewModel.swift in Sources */,
+				008046272C30F368001B6804 /* ImagePicker.swift in Sources */,
 				00F1D5162C20B75B00E7D4AD /* RecommendationsAppApp.swift in Sources */,
 				00707F9C2C271FF7003A9128 /* MovieListViewModel.swift in Sources */,
 			);
@@ -363,6 +367,7 @@
 				DEVELOPMENT_TEAM = 538986FBKH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecommendationsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -396,6 +401,7 @@
 				DEVELOPMENT_TEAM = 538986FBKH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecommendationsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -11,14 +11,15 @@ struct ProfileView: View {
     @StateObject var viewModel = ProfileViewModel.shared
     @State var profileSelectedItem: FilmInfo? = nil
     @State var isProfileShowSheet = false
+    @State var isChangeProfilePic = false
+    @State var image = UIImage(named: "baby")!
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack{
-                Image(systemName: "person")
+                Image(uiImage: self.image)
                     .resizable()
-                    .foregroundStyle(Color("BloodRed"))
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 100, height: 100)
-                    .padding(18)
                     .background(Color.black)
                     .clipShape(Circle())
                     .overlay(
@@ -26,6 +27,10 @@ struct ProfileView: View {
                             .stroke(Color("BloodRed"), lineWidth: 2)
                     )
                     .padding(4)
+                    
+                    .onTapGesture {
+                        isChangeProfilePic.toggle()
+                    }
                 Text("Frederico")
                     .foregroundStyle(.white)
                     .font(.system(size: 24))
@@ -67,8 +72,9 @@ struct ProfileView: View {
                     MovieDetailView(viewModel: detailViewModel)
                 }
             })
-            .onAppear{
-                print(viewModel.likedMovies)
+
+            .sheet(isPresented: $isChangeProfilePic) {
+                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
             }
 
     }

@@ -44,7 +44,7 @@ struct MainTabBar: View {
                 }
             }.accentColor(Color("BloodRed"))
         }
-    }//soier
+    }
 }
 
 #Preview {
