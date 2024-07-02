@@ -52,10 +52,14 @@ struct MovieListView: View {
             }
         }
         .onAppear{
-            viewModel.clearMoviesArray()
-            Task{
-               try await viewModel.fetchMoviesConcurrently(movCount: 8)
+            if viewModel.avgFilm.count == 2{
+                viewModel.clearMoviesArray()
+                Task{
+                   try await viewModel.fetchMoviesConcurrently(movCount: 8)
+                }
             }
+            
+
             
         }
 

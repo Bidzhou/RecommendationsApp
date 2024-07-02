@@ -50,12 +50,16 @@ struct ProfileView: View {
             }
             
             ForEach(viewModel.likedMovies, id: \.id) { film in
-                Button{
-                    profileSelectedItem = film
-                    isProfileShowSheet.toggle()
-                } label: {
-                    ProfileViewCell(movie: film)
-                }
+
+                
+                ProfileViewCell(movie: film)
+                    .onTapGesture {
+                        
+                        profileSelectedItem = film
+                        profileSelectedItem = profileSelectedItem!
+                        isProfileShowSheet.toggle()
+
+                    }
                 
 
             }
@@ -70,6 +74,8 @@ struct ProfileView: View {
                 if let selectedItem = profileSelectedItem {
                     let detailViewModel = MovieDetalViewModel(Movie: selectedItem)
                     MovieDetailView(viewModel: detailViewModel)
+                } else {
+                    Text("wer")
                 }
             })
 
